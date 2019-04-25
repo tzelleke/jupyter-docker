@@ -11,7 +11,8 @@ RUN conda update -n base conda \
     && pip install --upgrade pip \
     && conda install \
                      notebook \
-                     python-dotenv
+                     python-dotenv \
+                     qgrid
 
 RUN groupadd -r -g $PGID $USER \
     && useradd -r -m -u $PUID -g $USER $USER \
