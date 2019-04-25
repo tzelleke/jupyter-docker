@@ -1,0 +1,6 @@
+docker-compose.yml
+Dockerfile
+.git/
+.gitignore
+.ipynb_checkpoints/
+.env

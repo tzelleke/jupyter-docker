@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  jupyter:
+    build: ./
+    image: tzelleke/jupyter-docker:latest
+    container_name: jupyter
+    volumes:
+      - .:/home/anaconda/workspace
+    ports:
+      - "8888:8888"
