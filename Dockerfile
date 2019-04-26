@@ -10,9 +10,14 @@ RUN conda update -n base conda \
     && conda config --add channels conda-forge \
     && pip install --upgrade pip \
     && conda install \
-                     notebook \
                      python-dotenv \
-                     qgrid
+                     jupyter \
+                     qgrid \
+                     pivottablejs \
+                     scipy \
+                     matplotlib \
+                     seaborn \
+                     scrapy
 
 RUN groupadd -r -g $PGID $USER \
     && useradd -r -m -u $PUID -g $USER $USER \
