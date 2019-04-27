@@ -11,13 +11,14 @@ RUN conda update -n base conda \
     && pip install --upgrade pip \
     && conda install \
                      python-dotenv \
-                     jupyter \
-                     qgrid \
-                     pivottablejs \
                      scipy \
-                     matplotlib \
+                     scrapy \
                      seaborn \
-                     scrapy
+                     matplotlib \
+                     jupyter \
+                      ipython-sql \
+                      qgrid \
+                      ipypivot
 
 RUN groupadd -r -g $PGID $USER \
     && useradd -r -m -u $PUID -g $USER $USER \
@@ -30,7 +31,9 @@ RUN mkdir $WORKSPACE
 COPY . $WORKSPACE/
 WORKDIR $WORKSPACE
 
-RUN chown -R $USER:$USER /home/$USER
+RUN chown -R $USER:$USER /home/$USER \
+    && chown -R $USER:$USER /opt/conda
+
 USER $USER
 ENV PATH "$WORKSPACE/bin:$PATH"
 ENV PYTHONPATH "$WORKSPACE/src"
